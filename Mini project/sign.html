@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>One Voice — Sign the Petition</title>
+  <style>
+    :root{
+      --violet:#6b46c1;
+      --violet-600:#5a3ab0;
+      --blue:#2b6cb0;
+      --bg:#f7f7fb;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent: linear-gradient(135deg,var(--violet),var(--blue));
+      --radius:14px;
+      --glass: rgba(255,255,255,0.7);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--bg);color:#111}
+
+    .wrap{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:980px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.88));
+      border-radius:18px;
+      box-shadow:0 10px 40px rgba(16,24,40,0.08);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:0;
+    }
+
+    /* left panel - form */
+    .left{
+      padding:32px;
+    }
+
+    header.brand{
+      display:flex;gap:14px;align-items:center;margin-bottom:18px;
+    }
+
+    .logo{
+      width:64px;height:64px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:var(--accent);color:white;font-weight:700;font-size:22px;box-shadow:0 8px 18px rgba(75,0,130,0.12);
+    }
+
+    .title h1{margin:0;font-size:20px}
+    .title p{margin:4px 0 0;color:var(--muted);font-size:13px}
+
+    form.petition{
+      margin-top:18px;display:flex;flex-direction:column;gap:12px;
+    }
+
+    .field{display:flex;flex-direction:column;gap:8px}
+    label{font-size:13px;color:#111;font-weight:600}
+    input[type="text"], input[type="email"], textarea, select{
+      padding:12px 14px;border-radius:10px;border:1px solid #e6e8f0;background:transparent;font-size:14px;outline:none;
+    }
+
+    textarea{min-height:120px;resize:vertical}
+
+    .row{display:flex;gap:12px}
+    .row .field{flex:1}
+
+    .small{font-size:12px;color:var(--muted)}
+
+    .actions{display:flex;gap:12px;align-items:center;margin-top:8px}
+    .btn{
+      padding:12px 16px;border-radius:12px;border:0;cursor:pointer;font-weight:700;
+    }
+
+    .btn-primary{
+      background:var(--violet-600);color:white;box-shadow:0 8px 20px rgba(91,33,182,0.12);
+    }
+
+    .btn-ghost{
+      background:transparent;border:1px solid #e6e8f0;color:var(--muted);
+    }
+
+    .right{
+      background:linear-gradient(180deg, rgba(107,70,193,0.06), rgba(43,108,176,0.04));
+      padding:28px;border-left:1px solid rgba(16,24,40,0.03);
+      display:flex;flex-direction:column;gap:14px;align-items:stretch;
+    }
+
+    .stat{
+      background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(16,24,40,0.03);display:flex;align-items:center;gap:12px
+    }
+
+    .stat .count{font-size:26px;font-weight:800;color:var(--violet-600)}
+    .stat .label{font-size:13px;color:var(--muted)}
+
+    .preview{flex:1;overflow:auto;padding:6px}
+    .signature-list{display:flex;flex-direction:column;gap:8px}
+    .sig{padding:10px;border-radius:10px;background:rgba(255,255,255,0.9);border:1px solid #eef2ff}
+    .sig .meta{font-size:13px;color:var(--muted)}
+    .sig .msg{margin-top:6px;font-size:14px}
+
+    footer.note{font-size:12px;color:var(--muted);text-align:center}
+
+    /* responsive */
+    @media (max-width:920px){
+      .card{grid-template-columns:1fr;}
+      .right{order:-1}
+    }
+
+    @media (max-width:520px){
+      .left{padding:18px}
+      .logo{width:52px;height:52px;font-size:18px}
+    }
+
+    /* accessibility focus */
+    input:focus, textarea:focus, select:focus{box-shadow:0 0 0 4px rgba(107,70,193,0.12);border-color:var(--violet-600)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="card" role="main">
+      <section class="left">
+        <div class="brand">
+          <div class="logo">OV</div>
+          <div class="title">
+            <h1>One Voice — Sign the Petition</h1>
+            <p class="small">Join thousands who stand together. Your signature matters.</p>
+          </div>
+        </div>
+
+        <form class="petition" id="petitionForm" novalidate>
+          <div class="field">
+            <label for="fullName">Full name</label>
+            <input id="fullName" name="fullName" type="text" required placeholder="Your full name" />
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="you@example.com" />
+            </div>
+
+            <div class="field">
+              <label for="country">Country / City</label>
+              <input id="country" name="country" type="text" placeholder="City, Country" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Why you support this petition <span class="small">(optional)</span></label>
+            <textarea id="message" name="message" placeholder="A short message (optional)"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="anonymous">Signature type</label>
+            <select id="anonymous" name="anonymous">
+              <option value="name">Sign with my name</option>
+              <option value="anon">Sign anonymously</option>
+            </select>
+          </div>
+
+          <label style="display:flex;gap:10px;align-items:center;" class="small">
+            <input type="checkbox" id="agree" required />
+            <span>I confirm I support the cause and agree to the <a href="#">privacy policy</a>.</span>
+          </label>
+
+          <div class="actions">
+            <button type="submit" class="btn btn-primary">Sign Petition</button>
+            <button type="button" id="clearBtn" class="btn btn-ghost">Clear</button>
+            <div style="margin-left:auto;color:var(--muted);font-size:13px">Preview below</div>
+          </div>
+        </form>
+
+        <div style="margin-top:18px;color:var(--muted);font-size:13px">
+          <strong>Tip:</strong> Use a short personal message — messages increase engagement.
+        </div>
+      </section>
+
+      <aside class="right" aria-labelledby="statsTitle">
+        <div class="stat" aria-hidden="false">
+          <div>
+            <div class="count" id="count">0</div>
+            <div class="label">Total signatures</div>
+          </div>
+        </div>
+
+        <div class="preview" id="preview">
+          <h3 id="statsTitle" style="margin:6px 0 10px">Recent signatures</h3>
+          <div class="signature-list" id="signatureList">
+            <div class="small" style="color:var(--muted)">No signatures yet — be the first to sign!</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:8px;align-items:center;justify-content:space-between">
+          <small class="small">This site respects your privacy. Emails are never shared.</small>
+          <button class="btn btn-ghost" id="exportBtn">Export</button>
+        </div>
+
+        <footer class="note">Made with ❤️ by One Voice</footer>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    // Small client-side storage + validation - for demo only (not a replacement for server)
+    const form = document.getElementById('petitionForm');
+    const list = document.getElementById('signatureList');
+    const countEl = document.getElementById('count');
+    const exportBtn = document.getElementById('exportBtn');
+    const clearBtn = document.getElementById('clearBtn');
+
+    // load existing signatures from localStorage
+    const STORAGE_KEY = 'oneVoiceSignatures_v1';
+    function load(){
+      const raw = localStorage.getItem(STORAGE_KEY);
+      try{
+        return raw ? JSON.parse(raw) : [];
+      }catch(e){
+        console.error(e);return [];
+      }
+    }
+
+    function save(arr){ localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); }
+
+    function render(){
+      const arr = load();
+      countEl.textContent = arr.length;
+      list.innerHTML = '';
+      if(arr.length===0){
+        list.innerHTML = '<div class="small" style="color:var(--muted)">No signatures yet — be the first to sign!</div>';
+        return;
+      }
+      arr.slice().reverse().forEach(sig=>{
+        const el = document.createElement('div'); el.className='sig';
+        const name = sig.type==='anon' ? 'Anonymous' : (sig.name||'Unnamed');
+        el.innerHTML = `<div style=\"display:flex;justify-content:space-between;align-items:center\"><div style=\"font-weight:700\">${escapeHtml(name)}</div><div class=\"meta\">${escapeHtml(sig.when)}</div></div>`+
+                     `<div class=\"meta\">${escapeHtml(sig.place||'')}</div>`+
+                     (sig.message?`<div class=\"msg\">${escapeHtml(sig.message)}</div>`:'');
+        list.appendChild(el);
+      })
+    }
+
+    function escapeHtml(s){ if(!s) return ''; return s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;'); }
+
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+      // simple validation
+      const name = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const country = document.getElementById('country').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const anon = document.getElementById('anonymous').value;
+      const agree = document.getElementById('agree').checked;
+
+      if(!agree){ alert('Please confirm you agree to the privacy policy.'); return; }
+      if(anon!=='anon' && name.length<2){ alert('Please enter your full name, or select "Sign anonymously".'); return; }
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ alert('Please enter a valid email address.'); return; }
+
+      const arr = load();
+      arr.push({
+        name: name,
+        email: email,
+        place: country,
+        message: message,
+        when: new Date().toLocaleString(),
+        type: anon
+      });
+      save(arr);
+      render();
+
+      // small success animation
+      const btn = form.querySelector('.btn-primary');
+      btn.textContent = 'Signed ✓';
+      setTimeout(()=>btn.textContent='Sign Petition',1200);
+      form.reset();
+    })
+
+    exportBtn.addEventListener('click', ()=>{
+      const arr = load();
+      const blob = new Blob([JSON.stringify(arr, null, 2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href=url;a.download='onevoice-signatures.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+    })
+
+    clearBtn.addEventListener('click', ()=>{
+      if(confirm('Clear all saved signatures from this browser? This does not remove signatures on a real server.')){
+        localStorage.removeItem(STORAGE_KEY);
+        render();
+      }
+    })
+
+    // initial render
+    render();
+  </script>
+</body>
+</html>

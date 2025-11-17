@@ -1,0 +1,201 @@
+*{
+    padding:0px;
+    margin:0px;
+}
+.nav{
+    height:60px;
+    background-color:rgb(5, 5, 5);
+    padding:12px 32px;
+    margin:3px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#name{
+    color: rgb(210, 126, 30);
+    margin-left: 40px;
+}
+.start{
+    background-color: rgb(231, 143, 42) ;
+    height: 2.5rem;
+    width:10rem;
+    font-size: larger;
+    border: 3px solid rgb(245, 204, 108);
+    padding:5px;
+}
+.start:hover{
+    background-color: rgb(240, 189, 147);
+    box-shadow: 5px 5px 15px orange;
+
+}
+#search{
+    height: 37px;
+    font-size: larger;
+    margin-inline: 30px;
+}
+.login:hover{
+    color: rgb(194, 216, 209);
+    border: 2px solid rgb(239, 175, 79);
+}
+#change{
+    font-size: 80px;
+}
+.page1{
+    height: 1130px;
+    /* background-color: bisque; */
+    background-image: url(https://img.freepik.com/free-vector/gradient-hexagonal-background_52683-61876.jpg);
+    background-size: cover;
+   
+}
+.sec1{
+    height: 23%;
+    /* background-color: aqua; */
+    padding-top: 5%;
+    display: flex;
+    /* padding-left: 450px; */
+    justify-content: space-evenly;
+}
+#im1{
+    height:280px;
+    /* background-color: blueviolet; */
+    border-radius: 50%;
+    margin: 10px;
+} 
+.ima{
+    border-radius: 60%;
+}
+.ima:hover{
+     box-shadow: 15px 15px 15px rgb(142, 200, 224);
+
+}
+#join{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+   
+}
+.sec2{
+    height:23%;
+    /* background-color: blue; */
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+    width:60%;
+    margin-left: 350px;
+}
+.sec3{
+     height:23%;
+    /* background-color: rgb(164, 220, 161); */
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+    width:30%;
+    margin-left:600px ;
+}
+#but{
+    margin:30px;
+
+}
+.bu{
+    height: 40px;
+    width: 170px;
+    background-color:rgb(231, 143, 42);
+    border-radius: 10%;
+    border: 3px solid black;
+    font-size: larger;
+}
+.bu:hover{
+    background-color: burlywood;
+    box-shadow: 5px 5px 15px orange;
+}
+button{
+     height: 40px;
+    border-radius: 10%;
+    border: 3px solid black;
+    font-size: larger;
+    width: 300px;
+
+}
+button:hover{
+    background-color:rgb(57, 98, 233);
+} 
+.bo1{
+    height: 30vh;
+    background-color: rgb(168, 170, 169);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+ .no{
+    width:40px;
+    border-radius: 50%;
+} 
+.wer{
+    width: 33%;
+}
+.page3{
+    padding: 80px;
+}
+.right{
+    height: 40px;
+    border: 2px solid black;
+    font-size: larger;
+    width: 250px;
+}
+.bot{
+    margin-top: 60px;
+    height: 50vh;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+.spa1{
+    border: 2px solid black;
+    height: 50vh;
+    width: 38vb;
+    background-color: rgb(244, 244, 247);
+    margin: 10px;
+  
+}
+.imag1{
+ margin: 10px;
+  width: 330px;
+}
+.spa2{
+     border: 2px solid black;
+    height: 50vh;
+    width: 38vb;
+    background-color: rgb(244, 244, 247);
+    margin: 10px;
+
+}
+.imag2{
+  margin: 10px;
+  width: 330px;
+
+}
+.sec4{
+    padding: 30px;
+    height: 40%;
+    display: flex; 
+
+}
+.side{
+    height: 50vh;
+}
+.sect{
+     margin-top: 60px;
+    height: 30vh;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.se1{
+     height: 30vh;
+    width: 38vb;
+    background-color: rgb(244, 244, 247);
+    margin: 10px;
+    
+}
